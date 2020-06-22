@@ -4,7 +4,9 @@ import DashboardChart from './DashboardChart';
 
 const CustomerDashboard = () => (
   <Context.Consumer>
-    {({ customerBarData, customerPaiData }) => <DashboardChart barData={customerBarData} pieData={customerPaiData} />}
+    {({ customerBarData, customerPaiData }) => (
+      <DashboardChart barData={customerBarData} pieData={customerPaiData} name="Customer Dashboard" />
+    )}
   </Context.Consumer>
 );
 

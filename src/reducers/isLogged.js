@@ -1,11 +1,14 @@
-import { CHANGE } from '../actions';
+import { LOGIN } from '../actions';
+import { LOGOUT } from '../actions';
 
 const loggedReducer = (state = false, action) => {
   switch (action.type) {
-    case CHANGE:
-      return !state;
-    default:
+    case LOGIN:
+      return true;
+    case LOGOUT:
       return false;
+    default:
+      return state;
   }
 };
 

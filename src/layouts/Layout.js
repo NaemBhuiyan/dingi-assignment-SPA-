@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import DashboardLayout from './DashboardLayout';
-import ErrorLayout from './ErrorLayout';
+// import ErrorLayout from './ErrorLayout';
 import Login from '../components/auth/Login';
 import PrivateRoute from './PrivateRoute';
 

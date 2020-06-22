@@ -10,7 +10,7 @@ const Login = ({ setUser }) => {
       <Container>
         <Row className="flex-center min-vh-100 py-6">
           <Col sm={10} md={8} lg={6} xl={5} className="col-xxl-4">
-            <Logo />
+            <h1 className="text-sans-serif text-primary text-center mb-3">Dingi</h1>
             <Card>
               <CardBody className="fs--1 font-weight-normal p-5">
                 <Row className="text-left justify-content-between">

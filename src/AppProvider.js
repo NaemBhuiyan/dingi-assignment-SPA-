@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 class AppProvider extends Component {
   state = {
-    dingiData: []
+    initialData: []
   };
 
   componentDidMount() {
@@ -14,20 +14,20 @@ class AppProvider extends Component {
       headers: { Authorization: `JWT ${token}` }
     })
       .then(res => {
-        this.setState({ dingiData: res.data });
+        this.setState({ initialData: res.data });
       })
       .catch(console.log);
   }
   render() {
     const getUniqData = mixData => Array.from(new Set(mixData)).sort();
 
-    const allDates = this.state.dingiData.map(item => {
+    const allDates = this.state.initialData.map(item => {
       return item.date;
     });
-    const allProducts = this.state.dingiData.map(item => {
+    const allProducts = this.state.initialData.map(item => {
       return item.product;
     });
-    const allDistrict = this.state.dingiData.map(item => {
+    const allDistrict = this.state.initialData.map(item => {
       return item.district;
     });
 
@@ -38,7 +38,7 @@ class AppProvider extends Component {
     const getFilterData = (category, dataItem) => {
       return category.map(item => {
         return setOfDates.map(date => {
-          const dateArray = this.state.dingiData
+          const dateArray = this.state.initialData
             .filter(singleData => {
               if (singleData.date === date && singleData[dataItem] === item) {
                 // console.log(singleData.order_quantity);
@@ -172,7 +172,7 @@ class AppProvider extends Component {
     const salesPaiData = getPieData(setOfProducts, salesDataFilter);
     const customerPaiData = getPieData(setOfDistrict, customerDataFilter);
 
-    const dingiData = this.state.dingiData;
+    const dingiData = this.state.initialData;
 
     const value = {
       salesBarData,

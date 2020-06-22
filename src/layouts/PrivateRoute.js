@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { changeLoginState } from '../actions';
 class PrivateRoute extends Component {
   render() {
     const { component: Component, isLogged, ...rest } = this.props;
@@ -26,13 +25,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = () => {
-  return {
-    changeLoginState
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps()
-)(PrivateRoute);
+export default connect(mapStateToProps)(PrivateRoute);

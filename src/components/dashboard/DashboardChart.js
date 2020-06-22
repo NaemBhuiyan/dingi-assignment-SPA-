@@ -5,11 +5,11 @@ import { Row, Col, Card } from 'reactstrap';
 import FalconCardHeader from '../common/FalconCardHeader';
 
 import Chart from '../chart/Chart';
-const DashboardChart = ({ barData, pieData }) => {
+const DashboardChart = ({ barData, pieData, name }) => {
   return (
     <Row noGutters>
       <Col className="text-center my-4">
-        <h1> Dashboard</h1>
+        <h1> {name}</h1>
       </Col>
       <Col lg="12" className="mb-5">
         <Card>

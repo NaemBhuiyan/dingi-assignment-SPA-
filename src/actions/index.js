@@ -1,7 +1,13 @@
-export const CHANGE = 'CHANGE';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 
-export const changeLoginState = () => {
+export const login = () => {
   return {
-    type: CHANGE
+    type: LOGIN
+  };
+};
+export const logout = () => {
+  return {
+    type: LOGOUT
   };
 };

@@ -4,6 +4,8 @@ import AppContext from '../../context/Context';
 import Logo from './Logo';
 import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from 'react-redux';
+import { logout } from '../../actions';
 
 const NavbarTop = props => {
   const { showBurgerMenu, setShowBurgerMenu } = useContext(AppContext);
@@ -11,6 +13,8 @@ const NavbarTop = props => {
   const handleLogout = e => {
     e.preventDefault();
     localStorage.removeItem('token');
+    props.logout();
+
     props.history.push('/');
   };
 
@@ -45,4 +49,19 @@ const NavbarTop = props => {
   );
 };
 
-export default withRouter(NavbarTop);
+const mapStateToProps = state => {
+  return {
+    isLogged: state.isLogged
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    logout
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps()
+)(withRouter(NavbarTop));
